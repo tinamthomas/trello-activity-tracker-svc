@@ -1,16 +1,12 @@
 package main
 
 import (
-    "fmt"
     "log"
     "net/http"
+    "./controllers"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Why Hello There. Go rocks!")
-}
-
 func main() {
-    http.HandleFunc("/", handler)
+    http.HandleFunc("/", controllers.WelcomeHandler)
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
